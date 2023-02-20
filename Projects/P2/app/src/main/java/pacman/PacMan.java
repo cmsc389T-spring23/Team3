@@ -16,7 +16,29 @@ public class PacMan {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+    ArrayList<Location> moves = new ArrayList<Location>();
+    int currX = this.myLoc.x;
+    int currY = this.myLoc.y;
+
+    HashSet<Map.Type> left = myMap.getLoc(new Location(currX-1, currY));
+    HashSet<Map.Type> right = myMap.getLoc(new Location(currX+1, currY));
+    HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
+    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
+
+    // check each move, if its not null (not out of bounds), and not a wall, add to valid moves
+    if(left!=null && !left.contains(Map.Type.WALL)){
+      moves.add(new Location(currX-1, currY));
+    }
+    if(right!=null && !right.contains(Map.Type.WALL)){
+      moves.add(new Location(currX+1, currY));
+    }
+    if(up!=null && !up.contains(Map.Type.WALL)){
+      moves.add(new Location(currX, currY+1));
+    }
+    if(down!=null && !down.contains(Map.Type.WALL)){
+      moves.add(new Location(currX, currY-1));
+    }
+    return moves;
   }
 
   public boolean move() {
