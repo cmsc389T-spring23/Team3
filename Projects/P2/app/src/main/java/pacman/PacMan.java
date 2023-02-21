@@ -26,16 +26,16 @@ public class PacMan {
     HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
 
     // check each move, if its not null (not out of bounds), and not a wall, add to valid moves
-    if(left!=null && !left.contains(Map.Type.WALL)){
+    if(!left.contains(Map.Type.WALL)){
       moves.add(new Location(currX-1, currY));
     }
-    if(right!=null && !right.contains(Map.Type.WALL)){
+    if(!right.contains(Map.Type.WALL)){
       moves.add(new Location(currX+1, currY));
     }
-    if(up!=null && !up.contains(Map.Type.WALL)){
+    if(!up.contains(Map.Type.WALL)){
       moves.add(new Location(currX, currY+1));
     }
-    if(down!=null && !down.contains(Map.Type.WALL)){
+    if(!down.contains(Map.Type.WALL)){
       moves.add(new Location(currX, currY-1));
     }
     return moves;
