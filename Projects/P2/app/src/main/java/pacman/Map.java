@@ -63,7 +63,7 @@ public class Map {
 		 return field.get(loc);
 	 }
     // wallSet and emptySet will help you write this method
-    return null;
+    return wallSet;
   }
 
   public boolean attack(String Name) {

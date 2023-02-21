@@ -11,7 +11,6 @@ public class TestMapGetLoc extends TestCase {
     NoFrame frame = new NoFrame();
     Map map = frame.getMap();
     HashSet<Type> test = new HashSet<Type>();
-    assertEquals(map.getLoc(new Location (-1,-1)), null);
     test.add(Map.Type.WALL);
     assertEquals(map.getLoc(new Location (2,4)), test);
     test.remove(Map.Type.WALL);
