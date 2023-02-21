@@ -59,8 +59,11 @@ public class Map {
   }
 
   public HashSet<Type> getLoc(Location loc) {
+    	if (field.containsKey(loc)) {
+		 return field.get(loc);
+	 }
     // wallSet and emptySet will help you write this method
-    return null;
+    return wallSet;
   }
 
   public boolean attack(String Name) {
