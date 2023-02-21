@@ -12,13 +12,9 @@ public class TestPacManConsume extends TestCase {
 
     //Creating Players
     PacMan pacman = frame.addPacMan(new Location(2, 2)); //Creates PacMan at location x, y
-    if(pacman.consume() == null){
-      
-    }
+    assertEquals(pacman.consume(), null);
     frame.add("cookie", new Location(2, 2), null, Map.Type.COOKIE);
-    if(pacman.consume() != null){
-      
-    }
+    assertNotEquals(pacman.consume(), null);
     
     return;
 
