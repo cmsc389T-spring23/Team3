@@ -14,8 +14,31 @@ public class Ghost {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+    ArrayList<Location> moves = new ArrayList<Location>();
+    int currX = this.myLoc.x;
+    int currY = this.myLoc.y;
+
+    HashSet<Map.Type> left = myMap.getLoc(new Location(currX-1, currY));
+    HashSet<Map.Type> right = myMap.getLoc(new Location(currX+1, currY));
+    HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
+    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
+
+    // check each move, add to valid moves if position checked is not a wall
+    if(!left.contains(Map.Type.WALL)){
+      moves.add(new Location(currX-1, currY));
+    }
+    if(!right.contains(Map.Type.WALL)){
+      moves.add(new Location(currX+1, currY));
+    }
+    if(!up.contains(Map.Type.WALL)){
+      moves.add(new Location(currX, currY+1));
+    }
+    if(!down.contains(Map.Type.WALL)){
+      moves.add(new Location(currX, currY-1));
+    }
+    return moves;
   }
+
 
   public boolean move() {
     return false;
