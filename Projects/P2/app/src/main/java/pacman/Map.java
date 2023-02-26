@@ -68,6 +68,42 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
+    String ghostName = Name;
+    Location ghostLoc = locations.get(ghostName);
+    int x = ghostLoc.x;
+    int y = ghostLoc.y;
+    if (getLoc(new Location(x+1,y)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x+1,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x+1,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
     return false;
   }
 
