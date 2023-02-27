@@ -78,6 +78,7 @@ public class Map {
         if(set.contains(Map.Type.COOKIE)){
           cookies = cookies - 1;
           field.get(pacManLocation).remove(Map.Type.COOKIE);
+          return Map.Type.COOKIE;
         } else {
           return null;
         }
