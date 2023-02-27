@@ -1,6 +1,5 @@
 # PacMan Project - Team 3
-
-### Team Members: Mahinsa, Jasneet, Isabella, Ashley
+Team Members: Mahinsa, Jasneet, Isabella, Ashley
 ---
 ## Code Playing Pacman
 
