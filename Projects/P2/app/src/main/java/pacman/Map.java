@@ -55,6 +55,25 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
+    if(getLoc(new Location(loc.x, loc.y)).contains(Map.Type.WALL)){
+      return false;
+    }
+    if(type == Type.PACMAN){
+      Location old = locations.get(name); // get old location
+      field.get(old).remove(Type.PACMAN);  // remove pacman from old location
+      field.get(loc).add(Type.PACMAN);    // add pacman to new location
+      locations.put(name, loc);           // set new location
+      components.get(name).setLocation(loc.x, loc.y);   // update component
+      return true;
+    }
+    if(type == Type.GHOST){
+      Location old = locations.get(name); // get old location
+      field.get(old).remove(Type.GHOST);  // remove ghost from old location
+      field.get(loc).add(Type.GHOST);    // add ghost to new location
+      locations.put(name, loc);           // set new location
+      components.get(name).setLocation(loc.x, loc.y);   // update component
+      return true;
+    }
     return false;
   }
 
