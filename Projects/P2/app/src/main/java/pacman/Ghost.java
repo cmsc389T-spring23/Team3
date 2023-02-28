@@ -43,13 +43,12 @@ public class Ghost {
 
   public boolean move() {
     ArrayList<Location> locs = get_valid_moves();
-    if (locs.isEmpty()){
+    if (locs.isEmpty()) {
       return false;
     }
-    
     Random rand = new Random();
     Location loc = locs.get(rand.nextInt(locs.size()));
-    if (myMap.move(myName, loc, Map.Type.Ghost) == true) {
+    if (myMap.move(myName, loc, Map.Type.GHOST) == true) {
       myLoc = loc;
     }
     return true;

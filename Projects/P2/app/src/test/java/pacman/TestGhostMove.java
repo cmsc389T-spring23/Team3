@@ -2,6 +2,7 @@ package pacman;
 import java.io.*;
 import junit.framework.*;
 import java.awt.Color;
+import java.util.*;
 
 public class TestGhostMove extends TestCase {
 
