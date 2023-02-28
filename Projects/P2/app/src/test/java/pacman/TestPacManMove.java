@@ -15,5 +15,6 @@ public class TestPacManMove extends TestCase {
     assertTrue(pacman.move());
     assertTrue(moves.contains(pacman.myLoc));
     return;
+    
   }
 }

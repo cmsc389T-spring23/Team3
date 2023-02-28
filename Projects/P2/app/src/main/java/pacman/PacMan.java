@@ -47,6 +47,7 @@ public class PacMan {
     if (locs.isEmpty()){
       return false;
     }
+    
     Random rand = new Random();
     Location loc = locs.get(rand.nextInt(locs.size()));
     if (myMap.move(myName, loc, Map.Type.PACMAN) == true) {
