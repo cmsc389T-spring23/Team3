@@ -44,3 +44,9 @@ This function works by utilizing the functions in field. It first determines if 
 it returns the ArrayList associated with the location in field. Or else the WallSet is returned.
 
 The tests work by creating a frame and a map. The getLoc() function is then called on a few locations that has known components. These known components are stored in a hashset which is then compared to the results from the function call. Assertions are made to determine that the two are equal to determine that the function call worked.
+
+
+### move()
+The purpose of this function is to take care of the Map object components when an object (pacman, ghost) is moved. For this function, name of the object, the new intended location, and the Type of the object is provided. First, we check the new location and make sure it is not a wall because that would be an invalid move. If it is a wall, this function returns false. Next, the function checks if the field is the type pacman. If so, we make the necesary adjustments to get the old location of the pacman and remove the pacman from there, add the pacman to the new object, and update name with the associated location in "locations" and "components". We then do the same if we are moving a ghost object. These changes will collectivy reflect an object moving on themap. This function returns true once these fields are updated. 
+
+To test this function in testMapMove(), I created a MainFrame which initializes a game simulation. To start, I added a ghost and pacman to the frame at locations close together. Then I moved the pacman to the location of the ghost. This successfully returned true and I was able to check that the location I moved it to now contains pacman. I then tested move on the ghost by moving the ghost to another location. I verified that the ghost was moved and the old location no longer had a ghost component and the new location did. These tests indicate move is working correctly.
