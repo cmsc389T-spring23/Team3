@@ -16,6 +16,12 @@ This function works by using the get_valid_moves() function to determine where P
 
 The tests work by creating a frame, a map, and pacman. The pacman has been set to a specific location. After that, it calls get_valid_moves() on pacman to see the possible moves. Then move is called on pacman which should return true because there is at least one possible move. To finalize that the move was sucessful, pacman's new location should be one of the possible moves retrieved from get_valid_moves().
 
+### get_valid_moves()
+The purpose of this function is to return all possible moves that the pacman can potentially take. These moves are collected in an ArrayList of Locations which is returned upon the completion of the method. To get all valid moves, I check the contents of each location that is one move away from the pacman's location. This includes checking at the location left, right, up, and down. If any of the locations are a wall, they are not valid and will not be returned. If they are anything but a wall, they are a valid move and will be contained in the arraylist returned.
+
+To test this function in testPacManValidMoves(), I created a MainFrame which initializes a game simulation. To do initial tests of pacman, I created a pacman object and added it to the frame. After running the game, I could place the pacman at a location where I knew what the valid moves should be. The test correctly returns all the locations that are not walls. To test that the function still returns a location with a ghost, I created a ghost and added it to the map. I then ran the test again and it returned the same correct locations of valid moves for the pacman.
+
+
 ---
 ## Ghost Functions
 
