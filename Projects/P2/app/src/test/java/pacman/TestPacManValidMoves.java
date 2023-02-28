@@ -19,9 +19,10 @@ public class TestPacManValidMoves extends TestCase {
     assertFalse(moves1.contains(new Location(0,1)));
 
     Ghost ghost1 = frame.addGhost(new Location(1, 2), "red", Color.red); //Creates a red ghost named "name" at location x,y
-    assertTrue(moves1.contains(new Location(1,2)));
-    assertTrue(moves1.contains(new Location(2,1)));
-    assertFalse(moves1.contains(new Location(1,0)));
-    assertFalse(moves1.contains(new Location(0,1)));
+    ArrayList<Location> moves2 = pacman1.get_valid_moves();
+    assertTrue(moves2.contains(new Location(1,2)));
+    assertTrue(moves2.contains(new Location(2,1)));
+    assertFalse(moves2.contains(new Location(1,0)));
+    assertFalse(moves2.contains(new Location(0,1)));
   }
 }
