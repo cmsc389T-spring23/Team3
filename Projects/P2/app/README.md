@@ -21,7 +21,10 @@ The purpose of this function is to return all possible moves that the pacman can
 
 To test this function in testPacManValidMoves(), I created a MainFrame which initializes a game simulation. To do initial tests of pacman, I created a pacman object and added it to the frame. After running the game, I could place the pacman at a location where I knew what the valid moves should be. The test correctly returns all the locations that are not walls. To test that the function still returns a location with a ghost, I created a ghost and added it to the map. I then ran the test again and it returned the same correct locations of valid moves for the pacman.
 
+### is_ghost_in_range()
+This function checks every set of coordinates around pacman's current location and returns true if any of them contain a Ghost object, and false otherwise.
 
+To test, I made a sample frame that adds a pacman and ghost within range of each other, and then checks if pacman can see the ghost in range.
 ---
 ## Ghost Functions
 
@@ -36,6 +39,10 @@ The purpose of this function is to return all possible moves that a ghost can po
 
 To test this function in testGhostValidMoves(), I created a MainFrame which initializes a game simulation. To do initial tests of ghost, I created a pacman object and added it to the frame. After running the game, I could place the ghost at a location where I knew what the valid moves should be. The test correctly returns all the locations that are not walls. To test that the function still returns a location with another ghost, I created a second ghost and added it to the map. I then ran the test again and it returned the same correct locations of valid moves for the ghost since that ghost is allowed to go through another ghost.
 
+### is_pacman_in_range()
+This function is used by the Ghost class to check if pacman is within attack distance, doing so by checking the surrounding coordinates for pacman type objects.
+
+The test is the same as the test for is_ghost_in_range() but with the logic called by the ghost instead of pacman.
 
 ---
 ## Map Functions
@@ -50,3 +57,8 @@ The tests work by creating a frame and a map. The getLoc() function is then call
 The purpose of this function is to take care of the Map object components when an object (pacman, ghost) is moved. For this function, name of the object, the new intended location, and the Type of the object is provided. First, we check the new location and make sure it is not a wall because that would be an invalid move. If it is a wall, this function returns false. Next, the function checks if the field is the type pacman. If so, we make the necesary adjustments to get the old location of the pacman and remove the pacman from there, add the pacman to the new object, and update name with the associated location in "locations" and "components". We then do the same if we are moving a ghost object. These changes will collectivy reflect an object moving on themap. This function returns true once these fields are updated. 
 
 To test this function in testMapMove(), I created a MainFrame which initializes a game simulation. To start, I added a ghost and pacman to the frame at locations close together. Then I moved the pacman to the location of the ghost. This successfully returned true and I was able to check that the location I moved it to now contains pacman. I then tested move on the ghost by moving the ghost to another location. I verified that the ghost was moved and the old location no longer had a ghost component and the new location did. These tests indicate move is working correctly.
+
+### attack(String name)
+This function is used by the map class to end the game when pacman is attacked. If the ghost which called it is able to attack pacman it returns true and updates gameover to be true. In order to do this it utilizes the same logic as the ghost/pacman is _ in range functions, it uses the provided ghost name to locate which ghost is trying to attack, and then validates that attack by returning true or false.
+
+To test this function the test creates a board with a ghost in range of pacman, and then checks if map attack will correctly return true when the named ghost attacks pacman.
