@@ -25,6 +25,7 @@ To test this function in testPacManValidMoves(), I created a MainFrame which ini
 This function checks every set of coordinates around pacman's current location and returns true if any of them contain a Ghost object, and false otherwise.
 
 To test, I made a sample frame that adds a pacman and ghost within range of each other, and then checks if pacman can see the ghost in range.
+
 ---
 ## Ghost Functions
 
