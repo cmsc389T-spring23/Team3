@@ -42,7 +42,17 @@ public class PacMan {
   }
 
   public boolean move() {
-    return false;
+    ArrayList<Location> locs = get_valid_moves();
+    if (locs.isEmpty()){
+      return false;
+    }
+    
+    Random rand = new Random();
+    Location loc = locs.get(rand.nextInt(locs.size()));
+    if (myMap.move(myName, loc, Map.Type.PACMAN) == true) {
+      myLoc = loc;
+    }
+    return true;
   }
 
   public boolean is_ghost_in_range() {
