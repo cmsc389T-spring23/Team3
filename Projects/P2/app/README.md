@@ -53,7 +53,7 @@ The test is the same as the test for is_ghost_in_range() but with the logic call
 ## attack()
 This function is used to call the attack function from map if pacman is in range. the function uses is_pacman_in_range function to see if an attack is possible. If it is it calls attack on the map and returns true. otherwise it will return false.
 
-To test this function I created a mainframe and added pacman to the map. I then add a ghost out of range and call the atttac function and assert it returns false. I then add a ghost within range of pacman and assert that using the attac function in this case returns true. 
+To test this function I created a mainframe and added pacman to the map. I then add a ghost out of range and call the atttac function and assert it returns false. I then add a ghost within range of pacman and assert that using the attack function in this case returns true. 
 
 ---
 ## Map Functions
