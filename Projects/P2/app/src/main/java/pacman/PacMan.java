@@ -2,7 +2,6 @@ package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
 import javax.swing.JComponent;
-import java.util.Random;
 
 public class PacMan {
   String myName;
@@ -57,6 +56,33 @@ public class PacMan {
   }
 
   public boolean is_ghost_in_range() {
+    int x = this.myLoc.x;
+    int y = this.myLoc.y;
+    
+    if (myMap.getLoc(new Location(x+1,y)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x+1,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y-1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x,y-1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST)){
+      return true;
+    }
     return false;
   }
 
