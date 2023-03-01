@@ -1,6 +1,7 @@
 package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import javax.swing.JComponent;
 
 public class PacMan {
