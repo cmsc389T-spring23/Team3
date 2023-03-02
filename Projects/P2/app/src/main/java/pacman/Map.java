@@ -55,6 +55,25 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
+    if(getLoc(new Location(loc.x, loc.y)).contains(Map.Type.WALL)){
+      return false;
+    }
+    if(type == Type.PACMAN){
+      Location old = locations.get(name); // get old location
+      field.get(old).remove(Type.PACMAN);  // remove pacman from old location
+      field.get(loc).add(Type.PACMAN);    // add pacman to new location
+      locations.put(name, loc);           // set new location
+      components.get(name).setLocation(loc.x, loc.y);   // update component
+      return true;
+    }
+    if(type == Type.GHOST){
+      Location old = locations.get(name); // get old location
+      field.get(old).remove(Type.GHOST);  // remove ghost from old location
+      field.get(loc).add(Type.GHOST);    // add ghost to new location
+      locations.put(name, loc);           // set new location
+      components.get(name).setLocation(loc.x, loc.y);   // update component
+      return true;
+    }
     return false;
   }
 
@@ -68,12 +87,72 @@ public class Map {
 
   public boolean attack(String Name) {
     // update gameOver
+    String ghostName = Name;
+    Location ghostLoc = locations.get(ghostName);
+    int x = ghostLoc.x;
+    int y = ghostLoc.y;
+    if (getLoc(new Location(x+1,y)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x+1,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x-1,y+1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
+    if (getLoc(new Location(x+1,y-1)).contains(Map.Type.PACMAN)){
+      this.gameOver = true;
+      return true;
+    }
     return false;
   }
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
-    return null;
+	    
+	Location pacManLocation = locations.get(name); //get pacman's location
+	if(field.get(pacManLocation).contains(Map.Type.COOKIE)) { // check if there is a cookie where pacman is located
+		String cookieID = "tok_x" + pacManLocation.x + "_y" + pacManLocation.y; //create the cookie ID string
+		JComponent returnCookie = components.get(cookieID); // save the JComponet cookie to return
+		locations.remove(cookieID); //remove cookie from locations
+		components.remove(cookieID); //remove cookie from components
+		field.get(pacManLocation).remove(Map.Type.COOKIE); //remove cookie from field
+		cookies = cookies + 1; // update cookies
+		return returnCookie;
+	}
+	
+    /*for(HashSet<Type> set: field.values()){
+      if(set.contains(Map.Type.PACMAN)){
+        pacManLocation = field.getValue(set);
+        if(set.contains(Map.Type.COOKIE)){
+          cookies = cookies - 1;
+          
+          return Map.Type.COOKIE;
+        } else {
+          return null;
+        }
+      }
+    }*/
+    return null; //no cookie where pacman is return null
   }
 }
