@@ -2,7 +2,6 @@ package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
-import javax.tools.DocumentationTool.Location;
 
 public class Map {
 
@@ -138,7 +137,7 @@ public class Map {
 		locations.remove(cookieID); //remove cookie from locations
 		components.remove(cookieID); //remove cookie from components
 		field.get(pacManLocation).remove(Map.Type.COOKIE); //remove cookie from field
-		cookies = cookies - 1; // update cookies
+		cookies = cookies + 1; // update cookies
 		return returnCookie;
 	}
 	
