@@ -26,12 +26,13 @@ To test this function in testPacManValidMoves(), I created a MainFrame which ini
 ### consume()
 This function is used to call the eatCookie function from within the pacman class. The function checks if at pacmans location on the map there is a cookie. if there is a cookie it calls the eatCookie function on the map with the parameter "pacman". If there is no cookie at pacman's location it returns null.
 
-To test this function I initalized a frame with MainFrame and placed pacman where there were not any cookies and asserted that pacman.consume() would return null in this case. I then added a cookie at pacman's location. i then asserted that calling pacman.consume() would no longer return null.
+To test this function I initalized a frame with MainFrame and placed pacman where there was a cookies and asserted that pacman.consume() would not return null in this case. 
 
 ### is_ghost_in_range()
 This function checks every set of coordinates around pacman's current location and returns true if any of them contain a Ghost object, and false otherwise.
 
 To test, I made a sample frame that adds a pacman and ghost within 
+
 ---
 ## Ghost Functions
 
