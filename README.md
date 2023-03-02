@@ -2,7 +2,7 @@
 Team Members: Mahinsa, Jasneet, Isabella, Ashley
 
 ## Code Playing Pacman
-
+![alt](pacman-running.png)
 ## How to Run the Code
 To run the code, make sure you have gradle installed and you are in the project directory. Then type the commands listed below in your command line. The game should be running after that.
 
