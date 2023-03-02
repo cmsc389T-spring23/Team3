@@ -24,7 +24,7 @@ public class PacMan {
     HashSet<Map.Type> left = myMap.getLoc(new Location(currX-1, currY));
     HashSet<Map.Type> right = myMap.getLoc(new Location(currX+1, currY));
     HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
-    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
+    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1)); 
 
     // check each move, if its not null (not out of bounds), and not a wall, add to valid moves
     if(!left.contains(Map.Type.WALL)){
