@@ -12,6 +12,7 @@ public class TestMapGetLoc extends TestCase {
     Map map = frame.getMap();
     HashSet<Type> test = new HashSet<Type>();
     test.add(Map.Type.WALL);
+    assertEquals(map.getLoc(new Location (-10,-10)), test);
     assertEquals(map.getLoc(new Location (2,4)), test);
     test.remove(Map.Type.WALL);
     test.add(Map.Type.COOKIE);
