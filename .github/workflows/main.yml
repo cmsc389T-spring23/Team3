@@ -5,6 +5,19 @@ on: [push, pull_request, workflow_dispatch]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  map-eatCookie:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+  pacMan-consume:
+    runs-on: ubuntu-latest
+    container: openjdk
+    
+  ghost-attack:
+    runs-on: ubuntu-latest
+    container: openjdk
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
