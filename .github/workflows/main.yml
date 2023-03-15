@@ -27,5 +27,5 @@ jobs:
       - name: Test PacMan Valid Moves
         run: |
           cd Projects/P2/app/src/test/java/pacman/TestPacManValidMoves.java
-          gradle run
+          gradle run TestPacManValidMoves
 
