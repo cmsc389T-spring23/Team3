@@ -29,4 +29,15 @@ jobs:
         run: |
           ./gradlew build testClasses -x test
           ./gradlew test  --tests TestPacManValidMoves
+  
+  TestGhostValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test PacMan Valid Moves
+        working-directory: Projects/P2
+        run: |
+          ./gradlew build testClasses -x test
+          ./gradlew test  --tests TestGhostValidMoves
 
