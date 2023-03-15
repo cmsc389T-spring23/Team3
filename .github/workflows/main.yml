@@ -27,6 +27,6 @@ jobs:
       - name: Test PacMan Valid Moves
         run: |
           cd Projects/P2
-          ./gradlew build
+          ./gradlew build testClasses -x test
           gradle test --parallel --tests TestPacManValidMoves
 
