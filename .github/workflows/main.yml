@@ -28,5 +28,5 @@ jobs:
         working-directory: Projects/P2
         run: |
           ./gradlew build
-          ./gradlew  test --parallel --tests TestPacManValidMoves
+          gradle test --parallel --tests TestPacManValidMoves
 
