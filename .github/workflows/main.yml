@@ -86,6 +86,37 @@ jobs:
           ./gradlew build testClasses -x test
           ./gradlew test --tests TestMapGetLoc
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   TestGhostInRange:
     runs-on: ubuntu-latest
     container: openjdk:13
