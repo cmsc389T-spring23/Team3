@@ -8,7 +8,7 @@ public class TestPacManConsume extends TestCase {
 
   public void testPacManConsume() throws FileNotFoundException {
     //Creating A Map
-    NoFrame frame = new NoFrame(); //Creates A New Map With Walls and Tokens Initialized
+    MainFrame frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
     
 
     //Creating Players
