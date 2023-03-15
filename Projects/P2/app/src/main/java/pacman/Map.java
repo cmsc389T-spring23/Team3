@@ -133,22 +133,10 @@ public class Map {
 		locations.remove(cookieID); //remove cookie from locations
 		components.remove(cookieID); //remove cookie from components
 		field.get(pacManLocation).remove(Map.Type.COOKIE); //remove cookie from field
-		cookies = cookies + 1; // update cookies
+		// update cookies? nope.
 		return returnCookie;
 	}
 	
-    /*for(HashSet<Type> set: field.values()){
-      if(set.contains(Map.Type.PACMAN)){
-        pacManLocation = field.getValue(set);
-        if(set.contains(Map.Type.COOKIE)){
-          cookies = cookies - 1;
-          
-          return Map.Type.COOKIE;
-        } else {
-          return null;
-        }
-      }
-    }*/
     return null; //no cookie where pacman is return null
   }
 }
