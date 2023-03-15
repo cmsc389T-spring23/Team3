@@ -10,34 +10,34 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk:13
     steps:
-      -uses: actions/checkout@v2
-      -name: Test Map Eat Cookie
-      working-directory: Projects/P2
-      run: |
-        ./gradlew build testClasses -x test
-        ./gradlew test --tests TestMapEatCookie
+      - uses: actions/checkout@v2
+      - name: Test Map Eat Cookie
+        working-directory: Projects/P2
+        run: |
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestMapEatCookie
 
   TestPacManConsume:
     runs-on: ubuntu-latest
     container: openjdk:13
     steps:
-      -uses: actions/checkout@v2
-      -name: Test PacMan Consume
-      working-directory: Projects/P2
-      run: |
-        ./gradlew build testClasses -x test
-        ./gradlew test --tests TestPacManConsume
+      - uses: actions/checkout@v2
+      - name: Test PacMan Consume
+        working-directory: Projects/P2
+        run: |
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestPacManConsume
     
   TestGhostAttack:
     runs-on: ubuntu-latest
     container: openjdk:13
     steps:
-      -uses: actions/checkout@v2
-      -name: Test Ghost Attack
-      working-directory: Projects/P2
-      run: |
-        ./gradlew build testClasses -x test
-        ./gradlew test --tests TestGhostAttack
+      - uses: actions/checkout@v2
+      - name: Test Ghost Attack
+        working-directory: Projects/P2
+        run: |
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestGhostAttack
 
   # This workflow contains a single job called "build"
   build:
