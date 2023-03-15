@@ -25,7 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test PacMan Valid Moves
-        working-directory: Projects/P2
         run: |
           cd Projects/P2
           ./gradlew build
