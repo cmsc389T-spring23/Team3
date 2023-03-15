@@ -26,6 +26,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test PacMan Valid Moves
         run: |
-          cd Projects/P2/app/src/test/java/pacman/TestPacManValidMoves.java
+          cd Projects/P2/app/src/test/java/pacman
           gradle run TestPacManValidMoves
 
