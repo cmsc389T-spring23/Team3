@@ -44,14 +44,14 @@ public class Ghost {
   public boolean move() {
     ArrayList<Location> locs = get_valid_moves();
     if (locs.isEmpty()) {
-      return false;
+      return true;
     }
     Random rand = new Random();
     Location loc = locs.get(rand.nextInt(locs.size()));
     if (myMap.move(myName, loc, Map.Type.GHOST) == true) {
       myLoc = loc;
     }
-    return true;
+    return false;
   }
 
   public boolean is_pacman_in_range() {
