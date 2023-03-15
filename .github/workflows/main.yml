@@ -27,5 +27,5 @@ jobs:
       - name: Test PacMan Valid Moves
         working-directory: Projects/P2
         run: |
-          ./gradlew build testClasses -x test/java/pacman/TestPacManValidMoves.java
+          ./gradlew build testClasses -x TestPacManValidMoves
 
