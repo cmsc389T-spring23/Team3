@@ -45,7 +45,7 @@ public class PacMan {
   public boolean move() {
     ArrayList<Location> locs = get_valid_moves();
     if (locs.isEmpty()){
-      return false;
+      return true;
     }
     
     Random rand = new Random();
@@ -53,7 +53,7 @@ public class PacMan {
     if (myMap.move(myName, loc, Map.Type.PACMAN) == true) {
       myLoc = loc;
     }
-    return true;
+    return false;
   }
 
   public boolean is_ghost_in_range() {
