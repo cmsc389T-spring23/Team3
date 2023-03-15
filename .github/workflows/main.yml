@@ -18,3 +18,33 @@ jobs:
         run: |
           cd Projects/P2
           ./gradlew build testClasses -x test
+  TestPacManMove:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile Java Classes
+        run: |
+          cd Projects/P2
+          ./gradlew build testClasses -x test
+          ./gradlew test --test TestPacManMove
+  TestGhostMove:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile Java Classes
+        run: |
+          cd Projects/P2
+          ./gradlew build testClasses -x test
+          ./gradlew test --test TestGhostMove
+  TestMapGetLoc:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile Java Classes
+        run: |
+          cd Projects/P2
+          ./gradlew build testClasses -x test
+          ./gradlew test --test TestMapGetLoc
