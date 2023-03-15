@@ -7,7 +7,7 @@ public class TestMapMove extends TestCase {
 
   public void testMapMove() throws FileNotFoundException {
     //Creating A Map
-    MainFrame frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
+    NoFrame frame = new NoFrame(); //Creates A New Map With Walls and Tokens Initialized
 
     // moving pacman to ghost location
     Ghost ghost1 = frame.addGhost(new Location(2, 1), "red", Color.red); //Creates a red ghost named "name" at location x,y
