@@ -28,6 +28,7 @@ jobs:
       - name: Test Map Eat Cookie
         working-directory: Projects/P2
         run: |
+          cd Projects/P2
           ./gradlew build testClasses -x test
           ./gradlew test --tests TestMapEatCookie
 
@@ -39,6 +40,7 @@ jobs:
       - name: Test PacMan Consume
         working-directory: Projects/P2
         run: |
+          cd Projects/P2
           ./gradlew build testClasses -x test
           ./gradlew test --tests TestPacManConsume
     
@@ -50,5 +52,6 @@ jobs:
       - name: Test Ghost Attack
         working-directory: Projects/P2
         run: |
+          cd Projects/P2
           ./gradlew build testClasses -x test
           ./gradlew test --tests TestGhostAttack
