@@ -19,7 +19,7 @@ public class Ghost {
     int currX = this.myLoc.x;
     int currY = this.myLoc.y;
 
-    HashSet<Map.Type> left = myMap.getLoc(new Location(currX-1, currY));
+    HashSet<Map.Type> left = myMap.getLoc(new Location(currX, currY));
     HashSet<Map.Type> right = myMap.getLoc(new Location(currX+1, currY));
     HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
     HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
@@ -44,36 +44,23 @@ public class Ghost {
   public boolean move() {
     ArrayList<Location> locs = get_valid_moves();
     if (locs.isEmpty()) {
-      return false;
+      return true;
     }
     Random rand = new Random();
     Location loc = locs.get(rand.nextInt(locs.size()));
     if (myMap.move(myName, loc, Map.Type.GHOST) == true) {
       myLoc = loc;
     }
-    return true;
+    return false;
   }
 
   public boolean is_pacman_in_range() {
     int x = this.myLoc.x;
     int y = this.myLoc.y;
-    
-    if (myMap.getLoc(new Location(x+1,y)).contains(Map.Type.PACMAN)){
-      return true;
-    }
-    if (myMap.getLoc(new Location(x-1,y)).contains(Map.Type.PACMAN)){
-      return true;
-    }
     if (myMap.getLoc(new Location(x+1,y+1)).contains(Map.Type.PACMAN)){
       return true;
     }
     if (myMap.getLoc(new Location(x-1,y-1)).contains(Map.Type.PACMAN)){
-      return true;
-    }
-    if (myMap.getLoc(new Location(x,y+1)).contains(Map.Type.PACMAN)){
-      return true;
-    }
-    if (myMap.getLoc(new Location(x,y-1)).contains(Map.Type.PACMAN)){
       return true;
     }
     if (myMap.getLoc(new Location(x-1,y+1)).contains(Map.Type.PACMAN)){
@@ -88,9 +75,9 @@ public class Ghost {
   public boolean attack() {
     if(this.is_pacman_in_range()){
         myMap.attack(myName);
-        return true;
+        return false;
     } else {
-      return false;
+      return true;
     }
     
   }
