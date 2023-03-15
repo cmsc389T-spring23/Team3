@@ -86,44 +86,40 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    // update gameOver
-    String ghostName = Name;
-    Location ghostLoc = locations.get(ghostName);
-    int x = ghostLoc.x;
-    int y = ghostLoc.y;
-    if (getLoc(new Location(x+1,y)).contains(Map.Type.PACMAN)){
+  Location loc = locations.get(Name);
+    int x = loc.x;
+    int y = loc.y;
+    if (getLoc(new Location(x+1,y)).contains(Map.Type.GHOST)){
       this.gameOver = true;
+    }
+    if (getLoc(new Location(x-1,y)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x+1,y+1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x-1,y-1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x,y+1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x,y-1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x-1,y+1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
+    }
+    if (this.gameOver){
+          return false;
+    }
+    else{
       return true;
     }
-    if (getLoc(new Location(x-1,y)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x+1,y+1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x-1,y-1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x,y+1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x,y-1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x-1,y+1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    if (getLoc(new Location(x+1,y-1)).contains(Map.Type.PACMAN)){
-      this.gameOver = true;
-      return true;
-    }
-    return false;
+    
   }
 
   public JComponent eatCookie(String name) {
