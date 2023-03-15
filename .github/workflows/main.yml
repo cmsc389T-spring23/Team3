@@ -35,7 +35,7 @@ jobs:
     container: openjdk:13
     steps:
       - uses: actions/checkout@v2
-      - name: Test PacMan Valid Moves
+      - name: Test Ghost Valid Moves
         working-directory: Projects/P2
         run: |
           ./gradlew build testClasses -x test
@@ -46,7 +46,7 @@ jobs:
     container: openjdk:13
     steps:
       - uses: actions/checkout@v2
-      - name: Test PacMan Valid Moves
+      - name: Test Map Move
         working-directory: Projects/P2
         run: |
           ./gradlew build testClasses -x test
