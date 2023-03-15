@@ -27,7 +27,7 @@ jobs:
         run: |
           cd Projects/P2
           ./gradlew build testClasses -x test
-          ./gradlew test --test TestPacManMove
+          ./gradlew test --tests TestPacManMove
   TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk:13
@@ -37,7 +37,7 @@ jobs:
         run: |
           cd Projects/P2
           ./gradlew build testClasses -x test
-          ./gradlew test --test TestGhostMove
+          ./gradlew test --tests TestGhostMove
   TestMapGetLoc:
     runs-on: ubuntu-latest
     container: openjdk:13
@@ -47,4 +47,4 @@ jobs:
         run: |
           cd Projects/P2
           ./gradlew build testClasses -x test
-          ./gradlew test --test TestMapGetLoc
+          ./gradlew test --tests TestMapGetLoc
