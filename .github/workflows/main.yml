@@ -28,5 +28,5 @@ jobs:
         working-directory: Projects/P2
         run: |
           ./gradlew build testClasses -x test
-          ./gradlew test --tests TestPacManValidMoves
+          ./gradlew test --tests TestPacManValidMoves -Djava.awt.headless=false
 
