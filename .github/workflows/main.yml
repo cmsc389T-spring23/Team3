@@ -18,6 +18,41 @@ jobs:
         run: |
           cd Projects/P2
           ./gradlew build testClasses -x test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   TestPacManMove:
     runs-on: ubuntu-latest
     container: openjdk:13
