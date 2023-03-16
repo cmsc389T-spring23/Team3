@@ -113,10 +113,7 @@ public class Map {
     if (getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST)){
       this.gameOver = true;
     }
-     else{
-      return true;
-    }
-    
+    return true;
   }
 
   public JComponent eatCookie(String name) {
