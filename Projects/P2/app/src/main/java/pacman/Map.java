@@ -91,8 +91,9 @@ public class Map {
     Location loc = locations.get(Name);
     int x = loc.x;
     int y = loc.y;
-    if (getLoc(new Location(x, y)).contains(Map.Type.GHOST)) {
-      return false;
+
+    if (getLoc(new Location(x,y)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
     }
     if (getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST)) {
       this.gameOver = true;
