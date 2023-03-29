@@ -80,6 +80,13 @@ public class Map {
   }
 
   public HashSet<Type> getLoc(Location loc) {
+
+    if (loc.x < 0 || loc.x >= dim
+        || loc.y < 0 || loc.y >= dim) {
+      return wallSet;
+    }
+
+
     if (field.containsKey(loc)) {
       return field.get(loc);
     }
@@ -125,12 +132,15 @@ public class Map {
 
     Location pacManLocation = locations.get(name); // get pacman's location
 
+
+
     if (field.get(pacManLocation).contains(Map.Type.COOKIE)) { // check if there is a cookie where pacman is located
       String cookieID = "tok_x" + pacManLocation.x + "_y" + pacManLocation.y; // create the cookie ID string
       JComponent returnCookie = components.get(cookieID); // save the JComponet cookie to return
       locations.remove(cookieID); // remove cookie from locations
       components.remove(cookieID); // remove cookie from components
       field.get(pacManLocation).remove(Map.Type.COOKIE); // remove cookie from field
+
       cookies = cookies - 1; // update cookies
       return returnCookie;
     }

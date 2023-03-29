@@ -1,4 +1,5 @@
 package pacman;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -26,34 +27,36 @@ public class PacMan {
     HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
     HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1)); 
 
-    // check each move, if its not null (not out of bounds), and not a wall, add to valid moves
-    if(!left.contains(Map.Type.WALL)){
-      moves.add(new Location(currX-1, currY));
+
+    // check each move, if its not null (not out of bounds), and not a wall, add to
+    // valid moves
+    if (!left.contains(Map.Type.WALL)) {
+      moves.add(new Location(currX - 1, currY));
     }
-    if(!right.contains(Map.Type.WALL)){
-      moves.add(new Location(currX+1, currY));
+    if (!right.contains(Map.Type.WALL)) {
+      moves.add(new Location(currX + 1, currY));
     }
-    if(!up.contains(Map.Type.WALL)){
-      moves.add(new Location(currX, currY+1));
+    if (!up.contains(Map.Type.WALL)) {
+      moves.add(new Location(currX, currY + 1));
     }
-    if(!down.contains(Map.Type.WALL)){
-      moves.add(new Location(currX, currY-1));
+    if (!down.contains(Map.Type.WALL)) {
+      moves.add(new Location(currX, currY - 1));
     }
     return moves;
   }
 
   public boolean move() {
     ArrayList<Location> locs = get_valid_moves();
-    if (locs.isEmpty()){
-      return true;
+    if (locs.isEmpty()) {
+      return false;
     }
-    
+
     Random rand = new Random();
     Location loc = locs.get(rand.nextInt(locs.size()));
     if (myMap.move(myName, loc, Map.Type.PACMAN) == true) {
       myLoc = loc;
     }
-    return false;
+    return true;
   }
 
   public boolean is_ghost_in_range() {
