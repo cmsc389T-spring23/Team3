@@ -61,7 +61,7 @@ public class Map {
     if(type == Type.PACMAN){
       Location old = locations.get(name); // get old location
       field.get(old).remove(Type.PACMAN);  // remove pacman from old location
-      //field.get(loc).add(Type.PACMAN);    // add pacman to new location
+      field.get(loc).add(Type.PACMAN);    // add pacman to new location
       locations.put(name, loc);           // set new location
       components.get(name).setLocation(loc.x, loc.y);   // update component
       return true;
