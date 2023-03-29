@@ -62,10 +62,10 @@ public class Map {
     }
     if (type == Type.PACMAN) {
       Location old = locations.get(name); // get old location
-      field.get(old).remove(Type.PACMAN); // remove pacman from old location
-      // field.get(loc).add(Type.PACMAN); // add pacman to new location
-      locations.put(name, loc); // set new location
-      components.get(name).setLocation(loc.x, loc.y); // update component
+      field.get(old).remove(Type.PACMAN);  // remove pacman from old location
+      field.get(loc).add(Type.PACMAN);    // add pacman to new location
+      locations.put(name, loc);           // set new location
+      components.get(name).setLocation(loc.x, loc.y);   // update component
       return true;
     }
     if (type == Type.GHOST) {
@@ -80,10 +80,13 @@ public class Map {
   }
 
   public HashSet<Type> getLoc(Location loc) {
+
     if (loc.x < 0 || loc.x >= dim
         || loc.y < 0 || loc.y >= dim) {
       return wallSet;
     }
+
+
     if (field.containsKey(loc)) {
       return field.get(loc);
     }
@@ -95,8 +98,9 @@ public class Map {
     Location loc = locations.get(Name);
     int x = loc.x;
     int y = loc.y;
-    if (getLoc(new Location(x, y)).contains(Map.Type.GHOST)) {
-      return false;
+
+    if (getLoc(new Location(x,y)).contains(Map.Type.GHOST)){
+      this.gameOver = true;
     }
     if (getLoc(new Location(x - 1, y)).contains(Map.Type.GHOST)) {
       this.gameOver = true;
@@ -127,13 +131,17 @@ public class Map {
     // the id for a cookie at (10, 1) is tok_x10_y1
 
     Location pacManLocation = locations.get(name); // get pacman's location
+
+
+
     if (field.get(pacManLocation).contains(Map.Type.COOKIE)) { // check if there is a cookie where pacman is located
       String cookieID = "tok_x" + pacManLocation.x + "_y" + pacManLocation.y; // create the cookie ID string
       JComponent returnCookie = components.get(cookieID); // save the JComponet cookie to return
       locations.remove(cookieID); // remove cookie from locations
       components.remove(cookieID); // remove cookie from components
       field.get(pacManLocation).remove(Map.Type.COOKIE); // remove cookie from field
-      // update cookies? nope.
+
+      cookies = cookies - 1; // update cookies
       return returnCookie;
     }
 
