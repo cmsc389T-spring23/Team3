@@ -20,11 +20,10 @@ public class Ghost {
     int currX = this.myLoc.x;
     int currY = this.myLoc.y;
 
-
-    HashSet<Map.Type> left = myMap.getLoc(new Location(currX, currY));
-    HashSet<Map.Type> right = myMap.getLoc(new Location(currX + 1, currY));
-    HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY + 1));
-    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY - 1));
+    HashSet<Map.Type> left = myMap.getLoc(new Location(currX-1, currY));
+    HashSet<Map.Type> right = myMap.getLoc(new Location(currX+1, currY));
+    HashSet<Map.Type> up = myMap.getLoc(new Location(currX, currY+1));
+    HashSet<Map.Type> down = myMap.getLoc(new Location(currX, currY-1));
 
     // check each move, add to valid moves if position checked is not a wall
     if (!left.contains(Map.Type.WALL)) {
