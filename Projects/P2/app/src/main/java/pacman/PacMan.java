@@ -60,23 +60,37 @@ public class PacMan {
     int x = this.myLoc.x;
     int y = this.myLoc.y;
     
-    if (myMap.getLoc(new Location(x+1,y)).contains(Map.Type.GHOST )||myMap.getLoc(new Location(x-1,y)).contains(Map.Type.GHOST) ||
-    myMap.getLoc(new Location(x+1,y+1)).contains(Map.Type.GHOST) || myMap.getLoc(new Location(x-1,y-1)).contains(Map.Type.GHOST) || 
-    myMap.getLoc(new Location(x+1,y)).contains(Map.Type.GHOST) || myMap.getLoc(new Location(x-1,y-1)).contains(Map.Type.GHOST) ||
-    myMap.getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST) ||myMap.getLoc(new Location(x-1,y+1)).contains(Map.Type.GHOST)||
-    myMap.getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST))
-    {
-    return true;
-    
+    if (myMap.getLoc(new Location(x+1,y)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x+1,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y-1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x,y-1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x-1,y+1)).contains(Map.Type.GHOST)){
+      return true;
+    }
+    if (myMap.getLoc(new Location(x+1,y-1)).contains(Map.Type.GHOST)){
+      return true;
     }
     return false;
   }
 
   public JComponent consume() {
     if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE)){
-      return null;//myMap.eatCookie("pacman");
-    } else {
-      return null;
+      return myMap.eatCookie("pacman");
     }
+    return null;
   }
 }
